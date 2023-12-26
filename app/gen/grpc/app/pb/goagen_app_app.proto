@@ -1,0 +1,27 @@
+// Code generated with goa v3.14.0, DO NOT EDIT.
+//
+// app protocol buffer definition
+//
+// Command:
+// $ goa gen app/design
+
+syntax = "proto3";
+
+package app;
+
+option go_package = "/apppb";
+
+// The app service provides some pokemon api.
+service App {
+	// Select implements select.
+	rpc Select (SelectRequest) returns (SelectResponse);
+}
+
+message SelectRequest {
+	// Selected Pokemon Types
+	string type = 1;
+}
+
+message SelectResponse {
+	string field = 1;
+}

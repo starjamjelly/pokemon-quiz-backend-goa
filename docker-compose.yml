@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  goaapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pokemon-quiz-backend-goa
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./app:/app
+      - ./.env:/.env
+    ports:
+      - ${SERVER_PORT}:${CONTAINER_SERVER_PORT}
+    networks:
+      - pokemon-quiz-backend-goa-network
+
+networks:
+  pokemon-quiz-backend-goa-network:
+    name: pokemon-quiz-backend-goa-network

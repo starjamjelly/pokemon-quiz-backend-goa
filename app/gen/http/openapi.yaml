@@ -1,0 +1,47 @@
+swagger: "2.0"
+info:
+    title: Pokemon Quiz Service
+    description: Service for viewing Pokemon Quiz.
+    version: ""
+host: 0.0.0.0:8000
+consumes:
+    - application/json
+    - application/xml
+    - application/gob
+produces:
+    - application/json
+    - application/xml
+    - application/gob
+paths:
+    /openapi.json:
+        get:
+            tags:
+                - app
+            summary: Download ./gen/http/openapi.json
+            operationId: app#/openapi.json
+            responses:
+                "200":
+                    description: File downloaded
+                    schema:
+                        type: file
+            schemes:
+                - http
+    /select/{type}:
+        get:
+            tags:
+                - app
+            summary: select app
+            operationId: app#select
+            parameters:
+                - name: type
+                  in: path
+                  description: Selected Pokemon Types
+                  required: true
+                  type: string
+            responses:
+                "200":
+                    description: OK response.
+                    schema:
+                        type: string
+            schemes:
+                - http
